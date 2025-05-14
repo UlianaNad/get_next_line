@@ -6,7 +6,7 @@
 /*   By: unadoroz <unadoroz@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 09:12:14 by unadoroz          #+#    #+#             */
-/*   Updated: 2025/05/14 11:50:04 by unadoroz         ###   ########.fr       */
+/*   Updated: 2025/05/14 15:10:39 by unadoroz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 char *get_next_line(int fd)
 {	
-	char *buffer;
+	static char *buffer;
 	int bytes_to_read;
 
 	buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
@@ -40,7 +40,7 @@ int main(void)
 	}
 	while(1)
 	{
-		 printf("ft_calloc#[%d]---", count++);
+		printf("ft_calloc#[%d]---", count++);
 		s = get_next_line(fd);
 		if (s == NULL)
 			break;
