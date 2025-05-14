@@ -6,7 +6,7 @@
 /*   By: unadoroz <unadoroz@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 09:15:42 by unadoroz          #+#    #+#             */
-/*   Updated: 2025/05/13 10:06:09 by unadoroz         ###   ########.fr       */
+/*   Updated: 2025/05/14 11:13:13 by unadoroz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char	*ft_strdup(const char *s)
 	}
 	new[i] = '\0';
 	return (new);
-i}
+}
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -89,4 +89,31 @@ char	*ft_strchr(const char *s, int c)
 	if (ch == '\0')
 		return ((char *)(s + i));
 	return (NULL);
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*ptr;
+
+	if (size != 0 && count > SIZE_MAX / size)
+		return (NULL);
+	ptr = (void *)malloc(count * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, count * size);
+	return (ptr);
+}
+
+void	ft_bzero(void *s, size_t len)
+{
+	size_t	i;
+	char	*temp;
+
+	temp = (char *)s;
+	i = 0;
+	while (i < len)
+	{
+		temp[i] = 0;
+		i++;
+	}
 }
